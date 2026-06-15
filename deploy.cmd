@@ -55,7 +55,7 @@ echo   npm run db:seed
 echo.
 echo ========================================
 echo   Deploy complete! Visit your Vercel URL
-echo   Admin: /admin/login
+echo   Admin: /login
 echo   Email: admin@srismskills.com / admin123
 echo ========================================
 pause

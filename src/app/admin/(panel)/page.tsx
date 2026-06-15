@@ -7,7 +7,7 @@ import { IndianRupee, ShoppingCart, Users, Package } from "lucide-react";
 
 export default async function AdminDashboard() {
   const session = await auth();
-  if (!session?.user || session.user.role !== "ADMIN") redirect("/admin/login");
+  if (!session?.user || session.user.role !== "ADMIN") redirect("/login");
 
   const [revenue, orders, customers, products, recentOrders] = await Promise.all([
     prisma.order.aggregate({ where: { paymentStatus: "PAID" }, _sum: { total: true } }),

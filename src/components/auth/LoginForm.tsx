@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Input from "@/components/ui/Input";
@@ -29,8 +29,13 @@ export default function LoginForm() {
     if (result?.error) {
       toast.error("Invalid email or password");
     } else {
+      const session = await getSession();
       toast.success("Welcome back!");
-      router.push(callbackUrl);
+      if (session?.user?.role === "ADMIN") {
+        router.push("/admin");
+      } else {
+        router.push(callbackUrl);
+      }
       router.refresh();
     }
   };
