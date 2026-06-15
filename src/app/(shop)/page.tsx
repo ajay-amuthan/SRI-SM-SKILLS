@@ -4,15 +4,15 @@ import CategoriesSection from "@/components/home/CategoriesSection";
 import MissionSection from "@/components/home/MissionSection";
 import { getProducts } from "@/lib/products";
 import { prisma } from "@/lib/prisma";
-import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 export default async function HomePage() {
   const [featured, newArrivals, bestSellers, categories] = await Promise.all([
-    getProducts({ featured: true, limit: 4 }),
-    getProducts({ newArrival: true, limit: 4 }),
-    getProducts({ bestSeller: true, limit: 4 }),
+    getProducts({ featured: true, limit: 4, excludeCategory: "accessories" }),
+    getProducts({ newArrival: true, limit: 4, excludeCategory: "accessories" }),
+    getProducts({ bestSeller: true, limit: 4, excludeCategory: "accessories" }),
     prisma.category.findMany({
+      where: { slug: { not: "accessories" } },
       include: { _count: { select: { products: true } } },
       orderBy: { name: "asc" },
     }),

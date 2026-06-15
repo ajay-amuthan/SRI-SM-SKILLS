@@ -68,7 +68,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
             <div key={item.id} className="flex gap-4">
               {item.image && (
                 <div className="relative h-16 w-14 shrink-0 bg-card overflow-hidden">
-                  <Image src={item.image} alt={item.name} fill className="object-cover" sizes="56px" />
+                  <Image src={item.image} alt={item.name} fill unoptimized className="object-cover" sizes="56px" />
                 </div>
               )}
               <div className="flex-1">

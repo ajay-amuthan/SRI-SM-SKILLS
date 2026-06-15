@@ -10,10 +10,10 @@ interface Category {
 }
 
 const categoryImages: Record<string, string> = {
-  men: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80",
-  women: "https://images.unsplash.com/photo-1483985988355-763728e3685b?w=600&q=80",
-  kids: "https://images.unsplash.com/photo-1503454537845-ef948eae53a0?w=600&q=80",
-  accessories: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80",
+  men: "/images/men.png",
+  women: "/images/women.png",
+  kids: "/images/kids.png",
+  accessories: "/images/accessories.png",
 };
 
 export default function CategoriesSection({ categories }: { categories: Category[] }) {

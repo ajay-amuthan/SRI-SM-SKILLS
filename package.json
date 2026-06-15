@@ -9,11 +9,14 @@
     "lint": "eslint",
     "postinstall": "prisma generate",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "db:local": "node scripts/switch-db.js sqlite",
+    "db:prod": "node scripts/switch-db.js postgres",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:seed": "tsx prisma/seed.ts",
     "db:setup": "prisma migrate deploy && tsx prisma/seed.ts",
+    "db:setup:local": "npm run db:local && prisma db push && tsx prisma/seed.ts",
     "db:studio": "prisma studio"
   },
   "prisma": {

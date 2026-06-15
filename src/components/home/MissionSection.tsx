@@ -31,7 +31,7 @@ export default function MissionSection() {
               className="absolute inset-0 bg-cover bg-center opacity-80"
               style={{
                 backgroundImage:
-                  "url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80')",
+                  "url('/images/hero.png')",
               }}
             />
             <div className="absolute inset-0 flex items-center justify-center">

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, ShoppingBag, Star } from "lucide-react";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getProductImage } from "@/lib/utils";
 import type { ProductWithCategory } from "@/types";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -64,9 +64,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     <Link href={`/products/${product.slug}`} className="group block">
       <div className="relative overflow-hidden bg-card aspect-[3/4]">
         <Image
-          src={product.images[0] || "https://images.unsplash.com/photo-1441984904996-e0b6b687ef1e?w=600&q=80"}
+          src={getProductImage(product.images, product.category.slug)}
           alt={product.name}
           fill
+          unoptimized
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 50vw, 25vw"
         />

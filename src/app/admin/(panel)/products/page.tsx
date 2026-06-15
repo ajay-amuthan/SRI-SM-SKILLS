@@ -23,13 +23,14 @@ export default function AdminProductsPage() {
     images: "", sizes: "", colors: "", stock: "", isFeatured: false, isNewArrival: false, isBestSeller: false,
   });
 
-  const fetchData = async () => {
-    const [pRes, cRes] = await Promise.all([
-      fetch("/api/admin/products"),
-      fetch("/api/admin/categories"),
-    ]);
-    setProducts(await pRes.json());
-    setCategories(await cRes.json());
+  const fetchData = () => {
+    Promise.all([
+      fetch("/api/admin/products").then((r) => r.json()),
+      fetch("/api/admin/categories").then((r) => r.json()),
+    ]).then(([productsData, categoriesData]) => {
+      setProducts(productsData);
+      setCategories(categoriesData);
+    });
   };
 
   useEffect(() => { fetchData(); }, []);

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Star, Heart, ShoppingBag, Truck, Shield, RotateCcw } from "lucide-react";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getProductImage } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 import toast from "react-hot-toast";
 
@@ -21,7 +21,7 @@ interface ProductDetailProps {
     stock: number;
     rating: number;
     reviewCount: number;
-    category: { name: string };
+    category: { name: string; slug: string };
     reviews: {
       id: string;
       rating: number;
@@ -107,9 +107,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         <div>
           <div className="relative aspect-[3/4] bg-card overflow-hidden mb-4">
             <Image
-              src={product.images[selectedImage] || "https://images.unsplash.com/photo-1441984904996-e0b6b687ef1e?w=600&q=80"}
+              src={getProductImage(product.images[selectedImage], product.category.slug)}
               alt={product.name}
               fill
+              unoptimized
               className="object-cover"
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -125,7 +126,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     i === selectedImage ? "border-gold" : "border-transparent"
                   }`}
                 >
-                  <Image src={img} alt="" fill className="object-cover" sizes="64px" />
+                  <Image src={getProductImage(img, product.category.slug)} alt="" fill unoptimized className="object-cover" sizes="64px" />
                 </button>
               ))}
             </div>

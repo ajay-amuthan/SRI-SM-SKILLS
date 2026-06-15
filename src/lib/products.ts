@@ -31,6 +31,7 @@ export function formatProduct(product: {
 
 export async function getProducts(filters?: {
   category?: string;
+  excludeCategory?: string;
   search?: string;
   featured?: boolean;
   newArrival?: boolean;
@@ -49,6 +50,8 @@ export async function getProducts(filters?: {
 
   if (filters?.category) {
     where.category = { slug: filters.category };
+  } else if (filters?.excludeCategory) {
+    where.category = { slug: { not: filters.excludeCategory } };
   }
   if (filters?.search) {
     where.OR = [

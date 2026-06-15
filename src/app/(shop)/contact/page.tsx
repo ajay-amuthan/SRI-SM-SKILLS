@@ -52,10 +52,10 @@ export default function ContactPage() {
         </form>
         <div className="space-y-8">
           {[
-            { icon: MapPin, title: "Address", content: "123 Fashion Street, Hyderabad, Telangana 500001" },
-            { icon: Phone, title: "Phone", content: "+91 98765 43210" },
-            { icon: Mail, title: "Email", content: "info@srismskills.com" },
-            { icon: Clock, title: "Business Hours", content: "Mon - Sat: 10:00 AM - 8:00 PM" },
+            { icon: MapPin, title: "Address", content: "160/42, 1st Cross Street, Mularpattu Main Road, Gudiyatham, Tamil Nadu 632602" },
+            { icon: Phone, title: "Phone", content: "+91 9952522102" },
+            { icon: Mail, title: "Email", content: "ajayconnects01@gmail.com" },
+            { icon: Clock, title: "Business Hours", content: "Mon - Sun: 09:00 AM - 09:00 PM" },
           ].map(({ icon: Icon, title, content }) => (
             <div key={title} className="flex gap-4">
               <Icon className="h-5 w-5 text-gold shrink-0 mt-0.5" />

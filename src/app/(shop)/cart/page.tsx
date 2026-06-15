@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Trash2, Minus, Plus, ShoppingBag } from "lucide-react";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getProductImage } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 import type { CartItemWithProduct } from "@/types";
 import toast from "react-hot-toast";
@@ -70,9 +70,10 @@ export default function CartPage() {
             <div key={item.id} className="flex gap-4 border border-border p-4">
               <div className="relative h-24 w-20 shrink-0 bg-card overflow-hidden">
                 <Image
-                  src={item.product.images[0] || "https://images.unsplash.com/photo-1441984904996-e0b6b687ef1e?w=600&q=80"}
+                  src={getProductImage(item.product.images, item.product.category?.slug)}
                   alt={item.product.name}
                   fill
+                  unoptimized
                   className="object-cover"
                   sizes="80px"
                 />

@@ -69,16 +69,16 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-gold" />
-                <span>123 Fashion Street, Hyderabad, Telangana 500001</span>
+                <span>For Address Contact the Number</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-gold" />
-                <a href="tel:+919876543210" className="hover:text-gold transition-colors">+91 98765 43210</a>
+                <a href="tel:+9952522102" className="hover:text-gold transition-colors">+91 9952522102</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-gold" />
-                <a href="mailto:info@srismskills.com" className="hover:text-gold transition-colors">
-                  info@srismskills.com
+                <a href="ajayconnects01@gmail.com" className="hover:text-gold transition-colors">
+                  ajayconnects01@gmail.com
                 </a>
               </li>
             </ul>

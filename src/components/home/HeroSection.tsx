@@ -2,15 +2,22 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[70vh] md:min-h-[85vh] flex items-center overflow-hidden bg-foreground">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1441984904996-e0b6b687ef1e?w=1920&q=80')] bg-cover bg-center" />
+      <div className="absolute inset-0 opacity-40">
+        <Image
+          src="/images/hero.png"
+          alt="Premium fashion collection"
+          fill
+          className="object-cover object-center"
+          priority
+        />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/90 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/95 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-20 w-full">
         <motion.div

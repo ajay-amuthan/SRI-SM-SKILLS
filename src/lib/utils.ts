@@ -46,3 +46,25 @@ export function calculateDiscount(
   }
   return Math.min(subtotal, value);
 }
+
+export function getProductImage(
+  images: string[] | string | null | undefined,
+  categorySlug?: string
+): string {
+  const imgArray = Array.isArray(images)
+    ? images
+    : typeof images === "string"
+    ? [images]
+    : [];
+  const firstImage = imgArray[0];
+
+  if (!firstImage || firstImage.includes("unsplash.com")) {
+    const slug = categorySlug || "";
+    if (slug === "men") return "/images/men.png";
+    if (slug === "women") return "/images/women.png";
+    if (slug === "kids") return "/images/kids.png";
+    if (slug === "accessories") return "/images/accessories.png";
+    return "/images/hero.png";
+  }
+  return firstImage;
+}

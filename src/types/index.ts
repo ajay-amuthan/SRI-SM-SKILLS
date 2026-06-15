@@ -34,6 +34,7 @@ export interface CartItemWithProduct {
     price: number;
     images: string[];
     stock: number;
+    category?: { slug: string };
   };
 }
 
