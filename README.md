@@ -68,7 +68,7 @@ AUTH_SECRET="generate-a-random-secret"
 AUTH_URL="http://localhost:3000"
 RAZORPAY_KEY_ID="rzp_test_xxx"
 RAZORPAY_KEY_SECRET="your-secret"
-NEXT_PUBLIC_WHATSAPP_NUMBER="919876543210"
+NEXT_PUBLIC_STORE_WHATSAPP="919952522102"
 ```
 
 ## Project Structure

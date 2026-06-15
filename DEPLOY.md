@@ -40,7 +40,7 @@ git push -u origin main
 | `AUTH_URL` | `https://your-project.vercel.app` (update after deploy) |
 | `RAZORPAY_KEY_ID` | Live key from Razorpay dashboard |
 | `RAZORPAY_KEY_SECRET` | Live secret from Razorpay dashboard |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | `919876543210` (your number) |
+| `NEXT_PUBLIC_STORE_WHATSAPP` | `919952522102` (your number, digits only with country code) |
 
 4. Click **Deploy**
 5. Wait ~2 minutes for build to complete

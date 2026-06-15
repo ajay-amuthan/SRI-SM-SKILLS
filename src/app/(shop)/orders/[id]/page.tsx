@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { notFound, redirect } from "next/navigation";
 import { formatPrice } from "@/lib/utils";
+import { whatsAppUrl } from "@/lib/store";
 import { format } from "date-fns";
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
@@ -29,8 +30,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
 
   const currentStep = statusSteps.indexOf(order.status);
   
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919952522102";
-  const waMessage = encodeURIComponent(
+  const waHref = whatsAppUrl(
     `Hi Sri SM Skills! I just placed an order.\n\nOrder Number: ${order.orderNumber}\nTotal: ${formatPrice(order.total)}\nPayment: ${order.paymentMethod}\n\nPlease confirm my order!`
   );
 
@@ -46,7 +46,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <p>Payment: <span className="font-semibold">{order.paymentStatus}</span></p>
           {order.status === "PENDING" && (
             <a
-              href={`https://wa.me/${phone}?text=${waMessage}`}
+              href={waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded text-sm font-medium hover:bg-[#20b858] transition-colors"
