@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import { formatPrice } from "@/lib/utils";
 import { format } from "date-fns";
 import Image from "next/image";
+import { MessageCircle } from "lucide-react";
 
 interface OrderDetailPageProps {
   params: Promise<{ id: string }>;
@@ -27,6 +28,11 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
   if (!order) notFound();
 
   const currentStep = statusSteps.indexOf(order.status);
+  
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210";
+  const waMessage = encodeURIComponent(
+    `Hi Sri SM Skills! I just placed an order.\n\nOrder Number: ${order.orderNumber}\nTotal: ${formatPrice(order.total)}\nPayment: ${order.paymentMethod}\n\nPlease confirm my order!`
+  );
 
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-8">
@@ -38,6 +44,17 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
         <div className="text-right text-sm">
           <p>Status: <span className="font-semibold">{order.status}</span></p>
           <p>Payment: <span className="font-semibold">{order.paymentStatus}</span></p>
+          {order.status === "PENDING" && (
+            <a
+              href={`https://wa.me/${phone}?text=${waMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded text-sm font-medium hover:bg-[#20b858] transition-colors"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Confirm on WhatsApp
+            </a>
+          )}
         </div>
       </div>
 
