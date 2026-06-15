@@ -29,7 +29,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
 
   const currentStep = statusSteps.indexOf(order.status);
   
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210";
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919952522102";
   const waMessage = encodeURIComponent(
     `Hi Sri SM Skills! I just placed an order.\n\nOrder Number: ${order.orderNumber}\nTotal: ${formatPrice(order.total)}\nPayment: ${order.paymentMethod}\n\nPlease confirm my order!`
   );

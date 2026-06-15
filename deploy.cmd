@@ -44,7 +44,7 @@ echo   AUTH_SECRET      = Run: openssl rand -base64 32
 echo   AUTH_URL         = Your Vercel URL (update after first deploy)
 echo   RAZORPAY_KEY_ID  = Your Razorpay live key
 echo   RAZORPAY_KEY_SECRET = Your Razorpay live secret
-echo   NEXT_PUBLIC_WHATSAPP_NUMBER = 919876543210
+echo   NEXT_PUBLIC_WHATSAPP_NUMBER = 919952522102
 echo.
 vercel --prod
 
